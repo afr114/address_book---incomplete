@@ -19,4 +19,16 @@ class Contact
   def phone_number
     @phone_number
   end
+
+  def save
+    @@contacts.push(self)
+  end
+
+  define_singleton_method(:all) do
+    @@contacts
+  end
+
+  define_singleton_method(:clear) do
+    @@contact = []
+  end
 end
