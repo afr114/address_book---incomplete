@@ -71,8 +71,35 @@ describe(Address) do
     end
   end
 
+  describe('#address_save') do
+    it('saves the address') do
+      test_address = Address.new("635 way road", "Barcelona", "New Jersey", 10231)
+      test_address.address_save()
+      expect(Address.all_address()).to(eq([test_address]))
+    end
+  end
 
+  describe('.address_clear') do
+    it('removes all addresses from array') do
+      test_address = Address.new("635 way road", "Barcelona", "New Jersey", 10231)
+      expect(Address.address_clear()).to(eq([]))
+    end
+  end
 
+  describe('#address_id') do
+    it("returns the address id") do
+      test_address = Address.new("635 way road", "Barcelona", "New Jersey", 10231)
+      test_address.address_save()
+      test_address2 = Address.new("12 noway road", "Nobarcelona", "New York", 11746)
+      expect(test_address.address_id()).to(eq(1))
+    end
+  end
 
-
-end
+  describe('.address_find') do
+    it('Returns address id to user') do
+      test_address = Address.new("635 way road", "Barcelona", "New Jersey", 10231)
+      test_address.address_save()
+      expect(Address.address_find(test_address.address_id())).to(eq(test_address))
+    end
+  end
+end #end spec

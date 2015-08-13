@@ -2,10 +2,10 @@ class Contact
 
   @@contacts = []
 
-  def initialize(last_name, first_name, phone_number)
-    @last_name = last_name
+  def initialize(first_name, last_name)
     @first_name = first_name
-    @phone_number = phone_number
+    @last_name = last_name
+    @phones = []
     @contact_id = @@contacts.length.+(1)
   end
 
@@ -16,6 +16,10 @@ class Contact
   def first_name
     @first_name
   end
+
+  # def contact_name
+  #   @first_name.concat(@last_name)
+  # end
 
   def phone_number
     @phone_number
@@ -47,4 +51,7 @@ class Contact
     found_contact
   end
 
+  define_method(:add_phone) do |phone|
+    @phones.push(phone)
+  end
 end #end class
