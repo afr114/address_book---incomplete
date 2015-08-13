@@ -36,4 +36,15 @@ class Contact
   def contact_id
     @contact_id
   end
-end
+
+  define_singleton_method(:contact_find) do |indentify|
+    found_contact = nil
+    @@contacts.each() do |contact|
+      if contact.contact_id() == indentify.to_i
+        found_contact = contact
+      end
+    end
+    found_contact
+  end
+
+end #end class

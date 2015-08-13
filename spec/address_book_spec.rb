@@ -1,8 +1,9 @@
 require('rspec')
 require('contact')
+require('address')
 
 describe(Contact) do
-  
+
   before() do
     Contact.clear()
   end
@@ -50,4 +51,28 @@ describe(Contact) do
       expect(test_contact.contact_id()).to(eq(1))
     end
   end
+
+  describe('.contact_find') do
+    it("returns the contact id") do
+      test_contact = Contact.new("Smith", "Adam", 1234567896)
+      test_contact.save()
+      test_contact2 = Contact.new("Marx", "Karl", 1234567897)
+      expect(Contact.contact_find(test_contact.contact_id())).to(eq(test_contact))
+    end
+  end
+end
+
+describe(Address) do
+
+  describe('#city') do
+    it('returns city that contact lives in') do
+      test_address = Address.new("635 way road", "Barcelona", "New Jersey", 10231)
+      expect(test_address.city()).to(eq("Barcelona"))
+    end
+  end
+
+
+
+
+
 end
