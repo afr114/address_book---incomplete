@@ -2,10 +2,10 @@ require('rspec')
 require('contact')
 
 describe(Contact) do
-  #
-  # before() do
-  #   Contact.clear()
-  # end
+  
+  before() do
+    Contact.clear()
+  end
 
   describe('#last_name') do
     it('returns the contact last name') do
@@ -40,6 +40,14 @@ describe(Contact) do
     it('removes all contacts') do
       test_contact = Contact.new("Smith", "Adam", 1234567896)
       expect(Contact.clear()).to(eq([]))
+    end
+  end
+
+  describe('#contact_id') do
+    it('saves user entry as number into array') do
+      test_contact = Contact.new("Smith", "Adam", 1234567896)
+      test_contact.save()
+      expect(test_contact.contact_id()).to(eq(1))
     end
   end
 end

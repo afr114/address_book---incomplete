@@ -6,6 +6,7 @@ class Contact
     @last_name = last_name
     @first_name = first_name
     @phone_number = phone_number
+    @contact_id = @@contacts.length.+(1)
   end
 
   def last_name
@@ -29,6 +30,10 @@ class Contact
   end
 
   define_singleton_method(:clear) do
-    @@contact = []
+    @@contacts = []
+  end
+
+  def contact_id
+    @contact_id
   end
 end
