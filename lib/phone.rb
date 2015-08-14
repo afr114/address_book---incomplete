@@ -1,24 +1,14 @@
 class Phone
 
   @@phones = []
-
+    
+    attr_reader(:area_code, :number, :type, :phone_id)
+    
   def initialize(area_code, phone_number, type)
     @area_code = area_code
-    @phone_number = phone_number
+    @number = number
     @type = type
     @phone_id = @@phones.length().+(1)
-  end
-
-  def area_code
-    @area_code
-  end
-
-  def phone_number
-    @phone_number
-  end
-
-  def type
-    @type
   end
 
   def phone_save
@@ -33,14 +23,10 @@ class Phone
     @@phones = []
   end
 
-  def phone_id
-    @phone_id
-  end
-
   define_singleton_method(:phone_find) do |phone_indentify|
     found_phone = nil
-  @@phones.each do |phone|
-    if phone.phone_id() == phone_indentify.to_i
+    @@phones.each do |phone|
+    if phone.phone_id() == phone_indentify.to_i()
       found_phone = phone
       end
     end

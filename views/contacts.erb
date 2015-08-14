@@ -1,8 +1,8 @@
-<h2>A List of Your Current Contacts:</h2>
+<h1>A List of Your Amazing Contacts:</h1>
 
-<ul>
+<ol>
   <% @contacts.each() do |contact| %>
     <li><a href="/contacts/<%= contact.contact_id() %>">
-    <%= contact.first_name() %> <%= contact.last_name() %></a></li>
+        <%= contact.first_name().capitalize.+" ".+(contact.last_name.capitalize) %></a></li>
   <% end %>
-</ul>
+</ol>

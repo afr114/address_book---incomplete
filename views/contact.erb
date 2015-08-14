@@ -1,17 +1,4 @@
-<h1> Contact: </h1>
+<h1><%= @contact.job_title() %></h1>
+<h1><%= @contact.company() %></h1>
 
-<%= @contact.first_name() %><%= @contact.last_name() %>
-<br><br>
-<a href="/phones"> List of Phone Numbers</a>
-<br><br>
-<a href="/phones/new"> Add a new Number</a>
-<br><br>
-<a href="/address"> List of Addresses</a>
-<br><br>
-<a href="/address/new"> Add a new Address</a>
-
-<!-- <form action='/phones' method='post' placeholder='Add Phone Number Dere'>
-  <label for='phone_number'>Contact Name:</label>
-    <input id='phone_number' name='phone_number' type='text' placeholder='Phone Number'>
-    <button type='submit'>Add Phone Number</button>
-</form> -->
+<a href="/">Home</a>

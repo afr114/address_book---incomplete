@@ -1,28 +1,16 @@
 class Contact
 
   @@contacts = []
+    
+    attr_reader(:first_name, :last_name, :job_title, :company, :contact_id )
 
-  def initialize(first_name, last_name)
+    def initialize(first_name, last_name, job_title, company)
+    @contact_id = @@contacts.length.+(1)
     @first_name = first_name
     @last_name = last_name
-    @phones = []
-    @contact_id = @@contacts.length.+(1)
-  end
-
-  def last_name
-    @last_name
-  end
-
-  def first_name
-    @first_name
-  end
-
-  # def contact_name
-  #   @first_name.concat(@last_name)
-  # end
-
-  def phone_number
-    @phone_number
+    @job_title = job_title
+    @company = company  
+    @phone = []
   end
 
   def save
@@ -37,14 +25,10 @@ class Contact
     @@contacts = []
   end
 
-  def contact_id
-    @contact_id
-  end
-
   define_singleton_method(:contact_find) do |indentify|
     found_contact = nil
     @@contacts.each() do |contact|
-      if contact.contact_id() == indentify.to_i
+        if contact.contact_id().eql?(indentify.to_i())
         found_contact = contact
       end
     end
